@@ -15,7 +15,7 @@ Before using this script, ensure that the following prerequisites are met:
 1. Clone the repository or download the `network_info.sh` script.
 
 ```bash
-git clone 
+git clone https://github.com/vkhadela1985/bash-scripts.git
 cd bash-scripts/Network-Monitoring
 ```
 
