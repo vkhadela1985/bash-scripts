@@ -3,21 +3,25 @@
 # Function to monitor network performance with iftop
 monitor_network_performance() {
     echo "Network Performance:"
-    iftop -t -n -N -P
+    netstat > test2.txt
+    sed -E 's/([0-9])/*/g' test2.txt
 }
 
 # Function to display IP addresses and MAC addresses
 display_ip_mac_addresses() {
     echo "IP Addresses:"
-    ip -o -4 addr show scope global | awk '{print "   " $2 ": " $4}' | cut -d'/' -f1
+    ip -o -4 addr show scope global | awk '{print "   " $2 ": " $4}' | cut -d'/' -f1 > test2.txt
+    sed -E 's/([0-9])/*/g' test2.txt
     echo "MAC Addresses:"
-    ip link show | awk '/ether/ {print "   " $2}'
+    ip link show | awk '/ether/ {print "   " $2}' > test2.txt
+    sed -E 's/([0-9])/*/g' test2.txt
 }
 
 # Function to display open ports
 display_open_ports() {
     echo "Open Ports:"
-    ss -tuln | awk '/LISTEN/ {split($5, a, ":"); print a[2]}'
+    ss -tuln | awk '/LISTEN/ {split($5, a, ":"); print a[2]}' > test2.txt
+    sed -E 's/([0-9])/*/g' test2.txt
 }
 
 # Function to show real-time information
